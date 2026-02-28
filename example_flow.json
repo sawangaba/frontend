@@ -1,0 +1,369 @@
+{
+    "nodes": [
+        {
+            "id": "trigger-day-start",
+            "type": "trigger",
+            "position": {
+                "x": 50,
+                "y": 40
+            },
+            "data": {
+                "label": "Day Start",
+                "triggerType": "Time",
+                "time": "09:00"
+            }
+        },
+        {
+            "id": "trigger-employee-message",
+            "type": "trigger",
+            "position": {
+                "x": 50,
+                "y": 180
+            },
+            "data": {
+                "label": "Employee Sends Message",
+                "triggerType": "Event",
+                "time": "Message Received"
+            }
+        },
+        {
+            "id": "trigger-owner-message",
+            "type": "trigger",
+            "position": {
+                "x": 50,
+                "y": 320
+            },
+            "data": {
+                "label": "Owner Sends Message",
+                "triggerType": "Event",
+                "time": "Owner Message"
+            }
+        },
+        {
+            "id": "trigger-day-end",
+            "type": "trigger",
+            "position": {
+                "x": 50,
+                "y": 460
+            },
+            "data": {
+                "label": "Day End",
+                "triggerType": "Time",
+                "time": "23:00"
+            }
+        },
+        {
+            "id": "action-ask-shift",
+            "type": "action",
+            "position": {
+                "x": 380,
+                "y": 40
+            },
+            "data": {
+                "label": "Ask Employees Shift Status",
+                "actionType": "Ask",
+                "target": [
+                    "Employee 1",
+                    "Employee 2",
+                    "Employee 3",
+                    "Employee 4"
+                ],
+                "style": "Short"
+            }
+        },
+        {
+            "id": "action-ask-inventory",
+            "type": "action",
+            "position": {
+                "x": 380,
+                "y": 120
+            },
+            "data": {
+                "label": "Ask Inventory Status",
+                "actionType": "Ask",
+                "target": [
+                    "Employee 1",
+                    "Employee 2"
+                ],
+                "style": "Short"
+            }
+        },
+        {
+            "id": "action-ask-bookings",
+            "type": "action",
+            "position": {
+                "x": 380,
+                "y": 200
+            },
+            "data": {
+                "label": "Ask Bookings",
+                "actionType": "Ask",
+                "target": [
+                    "Employee 3"
+                ],
+                "style": "Short"
+            }
+        },
+        {
+            "id": "memory-shift-log",
+            "type": "memory",
+            "position": {
+                "x": 750,
+                "y": 40
+            },
+            "data": {
+                "label": "Store Shift Data",
+                "schema": [
+                    "employee",
+                    "time",
+                    "status"
+                ]
+            }
+        },
+        {
+            "id": "memory-inventory-log",
+            "type": "memory",
+            "position": {
+                "x": 750,
+                "y": 120
+            },
+            "data": {
+                "label": "Store Inventory Issues",
+                "schema": [
+                    "item",
+                    "level",
+                    "reported_by"
+                ]
+            }
+        },
+        {
+            "id": "memory-bookings-log",
+            "type": "memory",
+            "position": {
+                "x": 750,
+                "y": 200
+            },
+            "data": {
+                "label": "Store Bookings",
+                "schema": [
+                    "count",
+                    "time"
+                ]
+            }
+        },
+        {
+            "id": "action-employee-to-employee",
+            "type": "action",
+            "position": {
+                "x": 380,
+                "y": 300
+            },
+            "data": {
+                "label": "Employee Message Employee",
+                "actionType": "Task",
+                "target": [
+                    "Employee 1"
+                ],
+                "style": "Detailed"
+            }
+        },
+        {
+            "id": "decision-urgent",
+            "type": "decision",
+            "position": {
+                "x": 750,
+                "y": 320
+            },
+            "data": {
+                "label": "Is Urgent?",
+                "condition": "message contains urgent"
+            }
+        },
+        {
+            "id": "router-escalation",
+            "type": "router",
+            "position": {
+                "x": 1050,
+                "y": 300
+            },
+            "data": {
+                "label": "Escalation Router",
+                "routes": {
+                    "urgent": "",
+                    "normal": ""
+                }
+            }
+        },
+        {
+            "id": "action-notify-owner",
+            "type": "action",
+            "position": {
+                "x": 1350,
+                "y": 260
+            },
+            "data": {
+                "label": "Notify Owner",
+                "actionType": "Notify",
+                "target": [
+                    "Business Owner"
+                ],
+                "style": "Short"
+            }
+        },
+        {
+            "id": "action-daily-summary",
+            "type": "action",
+            "position": {
+                "x": 380,
+                "y": 460
+            },
+            "data": {
+                "label": "Ask Daily Sales & Expenses",
+                "actionType": "Ask",
+                "target": [
+                    "Business Owner"
+                ],
+                "style": "Detailed"
+            }
+        },
+        {
+            "id": "memory-finance-log",
+            "type": "memory",
+            "position": {
+                "x": 750,
+                "y": 460
+            },
+            "data": {
+                "label": "Store Finance",
+                "schema": [
+                    "sales",
+                    "expenses",
+                    "date"
+                ]
+            }
+        },
+        {
+            "id": "action-handle-bot",
+            "type": "action",
+            "position": {
+                "x": 1350,
+                "y": 360
+            },
+            "data": {
+                "label": "Bot Human Reply",
+                "actionType": "Notify",
+                "target": [
+                    "Business Owner"
+                ],
+                "style": "Detailed"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "id": "e1",
+            "source": "trigger-day-start",
+            "target": "action-ask-shift"
+        },
+        {
+            "id": "e2",
+            "source": "trigger-day-start",
+            "target": "action-ask-inventory"
+        },
+        {
+            "id": "e3",
+            "source": "trigger-day-start",
+            "target": "action-ask-bookings"
+        },
+        {
+            "id": "e4",
+            "source": "action-ask-shift",
+            "target": "memory-shift-log"
+        },
+        {
+            "id": "e5",
+            "source": "action-ask-inventory",
+            "target": "memory-inventory-log"
+        },
+        {
+            "id": "e6",
+            "source": "action-ask-bookings",
+            "target": "memory-bookings-log"
+        },
+        {
+            "id": "e7",
+            "source": "trigger-employee-message",
+            "target": "action-employee-to-employee"
+        },
+        {
+            "id": "e8",
+            "source": "trigger-employee-message",
+            "target": "decision-urgent"
+        },
+        {
+            "id": "e9",
+            "source": "decision-urgent",
+            "target": "router-escalation"
+        },
+        {
+            "id": "e10",
+            "source": "decision-urgent",
+            "target": "action-handle-bot"
+        },
+        {
+            "id": "e11",
+            "source": "router-escalation",
+            "target": "action-notify-owner"
+        },
+        {
+            "id": "e12",
+            "source": "trigger-day-end",
+            "target": "action-daily-summary"
+        },
+        {
+            "id": "e13",
+            "source": "action-daily-summary",
+            "target": "memory-finance-log"
+        }
+    ],
+    "setup": {
+        "businessName": "Legends",
+        "businessType": "Restaurant",
+        "hours": "10:00 - 23:00",
+        "employeeCount": 4,
+        "employees": [
+            "Employee 1",
+            "Employee 2",
+            "Employee 3",
+            "Employee 4"
+        ],
+        "roles": {
+            "Business Owner": {
+                "ask": "full_access",
+                "forbid": "none"
+            },
+            "Employee 1": {
+                "ask": "operations",
+                "forbid": "finance"
+            },
+            "Employee 2": {
+                "ask": "operations",
+                "forbid": "finance"
+            },
+            "Employee 3": {
+                "ask": "operations",
+                "forbid": "finance"
+            },
+            "Employee 4": {
+                "ask": "operations",
+                "forbid": "finance"
+            }
+        },
+        "personality": {
+            "tone": 65,
+            "proactive": 70,
+            "authority": 45,
+            "description": "Acts like a calm, observant business partner"
+        }
+    }
+}
