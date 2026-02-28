@@ -37,7 +37,7 @@ const LoginScreen = ({ onLogin }) => {
         const endpoint = mode === 'login' ? '/api/login' : '/api/signup';
 
         try {
-            const res = await fetch(`http://localhost:8000${endpoint}`, {
+            const res = await fetch(`https://backend-fhk2.onrender.com/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
