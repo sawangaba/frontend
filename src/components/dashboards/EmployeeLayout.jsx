@@ -18,7 +18,7 @@ const EmployeeLayout = () => {
             <Sidebar links={EMPLOYEE_LINKS} />
 
             {/* Main Content Area */}
-            <main className="flex-1 overflow-hidden md:ml-64 relative">
+            <main className="flex-1 overflow-hidden md:ml-64 relative pb-28 md:pb-0">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={location.pathname}

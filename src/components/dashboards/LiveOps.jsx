@@ -152,7 +152,7 @@ const LiveOps = () => {
             {/* RIGHT SIDE: Tasks Board (Fixed 40% on Desktop) */}
             <div className="w-full md:w-[40%] border-l border-white/5 bg-[#080809] flex flex-col">
                 <div className="p-6 md:p-8 flex-1 flex flex-col overflow-hidden">
-                    <header className="mb-10 flex items-center justify-between">
+                    <header className="mb-10 flex items-center justify-between pr-16 md:pr-0">
                         <div>
                             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 block mb-2">Operation Stream</span>
                             <h1 className="text-3xl font-black text-white tracking-tighter">LIVE BOARD</h1>
@@ -161,7 +161,7 @@ const LiveOps = () => {
                         {/* Mobile Chat Button */}
                         <button
                             onClick={() => setShowChatMobile(true)}
-                            className="md:hidden w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-lg active:scale-90 transition-all"
+                            className="md:hidden w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-lg active:scale-90 transition-all shrink-0"
                         >
                             <MessageSquare className="w-6 h-6" />
                         </button>

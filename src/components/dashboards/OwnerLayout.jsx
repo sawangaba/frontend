@@ -107,7 +107,7 @@ const OwnerLayout = () => {
             <Sidebar links={OWNER_LINKS} />
 
             {/* Main Content Area */}
-            <main className="flex-1 overflow-hidden md:ml-64 relative">
+            <main className="flex-1 overflow-hidden md:ml-64 relative pb-28 md:pb-0">
                 <NotificationsDropdown />
                 <div className="h-full w-full overflow-y-auto">
                     <Outlet />
