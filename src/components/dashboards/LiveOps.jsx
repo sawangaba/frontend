@@ -71,7 +71,7 @@ const LiveOps = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                const res = await fetch('http://localhost:8000/api/owner/tasks');
+                const res = await fetch('https://backend-fhk2.onrender.com/api/owner/tasks');
                 const data = await res.json();
                 setTasks(data);
             } catch (err) {
