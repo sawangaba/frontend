@@ -7,7 +7,7 @@ const EmployeeTasks = () => {
 
     const fetchTasks = async () => {
         try {
-            const res = await fetch('http://localhost:8000/api/employee/tasks?employee_name=sawan');
+            const res = await fetch('https://backend-fhk2.onrender.com/api/employee/tasks?employee_name=sawan');
             const data = await res.json();
             setTasks(data);
         } catch (err) {
@@ -23,7 +23,7 @@ const EmployeeTasks = () => {
 
     const updateStatus = async (id, status) => {
         try {
-            await fetch(`http://localhost:8000/api/tasks/${id}`, {
+            await fetch(`https://backend-fhk2.onrender.com/api/tasks/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status })

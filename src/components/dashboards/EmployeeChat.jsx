@@ -153,7 +153,7 @@ const EmployeeChat = ({ isEmbedded = false, onAction, user = { name: 'sawan' }, 
     useEffect(() => {
         const fetchHistory = async () => {
             try {
-                const res = await fetch(`http://localhost:8000/api/employee/messages?thread_id=${threadId}`);
+                const res = await fetch(`https://backend-fhk2.onrender.com/api/employee/messages?thread_id=${threadId}`);
                 const data = await res.json();
                 if (data && data.length > 0) {
                     const mappedMessages = data.map(msg => ({
@@ -208,7 +208,7 @@ const EmployeeChat = ({ isEmbedded = false, onAction, user = { name: 'sawan' }, 
         setIsTyping(true);
 
         try {
-            const response = await fetch('http://localhost:8000/api/employee/message', {
+            const response = await fetch('https://backend-fhk2.onrender.com/api/employee/message', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

@@ -22,7 +22,7 @@ const DatabaseManager = ({ user }) => {
     const fetchUsers = async () => {
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:8000/api/admin/users`);
+            const res = await fetch(`https://backend-fhk2.onrender.com/api/admin/users`);
             const data = await res.json();
             setUsersData(data);
         } catch (err) {
@@ -35,7 +35,7 @@ const DatabaseManager = ({ user }) => {
     const handleDelete = async (rowId) => {
         if (!window.confirm("Are you sure you want to permanently delete this user?")) return;
         try {
-            const res = await fetch(`http://localhost:8000/api/admin/user/${rowId}`, {
+            const res = await fetch(`https://backend-fhk2.onrender.com/api/admin/user/${rowId}`, {
                 method: 'DELETE'
             });
             if (res.ok) {
@@ -63,7 +63,7 @@ const DatabaseManager = ({ user }) => {
 
     const saveEdit = async () => {
         try {
-            const res = await fetch(`http://localhost:8000/api/admin/user/${editingRowId}`, {
+            const res = await fetch(`https://backend-fhk2.onrender.com/api/admin/user/${editingRowId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(editFormData)
@@ -93,7 +93,7 @@ const DatabaseManager = ({ user }) => {
 
     const saveAdd = async () => {
         try {
-            const res = await fetch(`http://localhost:8000/api/signup`, {
+            const res = await fetch(`https://backend-fhk2.onrender.com/api/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newFormData)
