@@ -20,7 +20,7 @@ const DatabaseViewer = ({ user, onBack }) => {
 
     const fetchTables = async () => {
         try {
-            const res = await fetch(`http://localhost:8000/api/db/tables?user_id=${user.id}`);
+            const res = await fetch(`https://backend-fhk2.onrender.com/api/db/tables?user_id=${user.id}`);
             const data = await res.json();
             setTables(data);
             if (data.length > 0 && !selectedTable) setSelectedTable(data[0]);
@@ -32,7 +32,7 @@ const DatabaseViewer = ({ user, onBack }) => {
     const fetchTableData = async (tableName) => {
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:8000/api/db/table/${tableName}?user_id=${user.id}`);
+            const res = await fetch(`https://backend-fhk2.onrender.com/api/db/table/${tableName}?user_id=${user.id}`);
             const data = await res.json();
             setTableData(data);
         } catch (error) {
@@ -45,7 +45,7 @@ const DatabaseViewer = ({ user, onBack }) => {
         if (!window.confirm(`Are you sure you want to empty table "${selectedTable}"? This cannot be undone.`)) return;
 
         try {
-            const res = await fetch(`http://localhost:8000/api/db/table/${selectedTable}?user_id=${user.id}`, {
+            const res = await fetch(`https://backend-fhk2.onrender.com/api/db/table/${selectedTable}?user_id=${user.id}`, {
                 method: 'DELETE'
             });
             if (res.ok) {
