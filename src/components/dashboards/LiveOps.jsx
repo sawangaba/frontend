@@ -29,7 +29,7 @@ const TaskCard = ({ task }) => (
         <h4 className="text-white/90 font-medium text-sm mb-4 leading-relaxed">{task.title}</h4>
         <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-[9px] font-bold text-white uppercase">
+                <div className="w-6 h-6 rounded-full bg-blue-200 flex items-center justify-center text-[9px] font-bold text-white uppercase">
                     {task.assignee ? task.assignee.substring(0, 2) : 'AI'}
                 </div>
                 <span className="text-[10px] text-white/30 font-medium">{task.assignee || 'Unassigned'}</span>
