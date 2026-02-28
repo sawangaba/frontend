@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Clock, Play } from 'lucide-react';
+import { Check, Play } from 'lucide-react';
 
 const EmployeeTasks = () => {
     const [tasks, setTasks] = useState([]);
@@ -55,8 +55,8 @@ const EmployeeTasks = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 className={`p-5 rounded-2xl border transition-all ${isDone ? 'bg-emerald-500/10 border-emerald-500/20 opacity-50' :
-                                        inProgress ? 'bg-blue-500/10 border-blue-500/30' :
-                                            'bg-white/5 border-white/10'
+                                    inProgress ? 'bg-blue-500/10 border-blue-500/30' :
+                                        'bg-white/5 border-white/10'
                                     }`}
                             >
                                 <div className="flex justify-between items-start mb-3">

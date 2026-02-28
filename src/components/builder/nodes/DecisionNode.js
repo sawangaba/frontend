@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { GitFork, Check, X } from 'lucide-react';
+import { GitFork } from 'lucide-react';
 import { Handle, Position } from '@xyflow/react';
 import BaseNode from './BaseNode';
 

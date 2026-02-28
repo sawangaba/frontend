@@ -5,7 +5,6 @@ import useBuilderStore from '../../../store/builderStore';
 
 const ActionNode = ({ id, data, selected }) => {
     const setup = useBuilderStore((state) => state.setup);
-    const employees = setup?.employees || [];
 
     return (
         <BaseNode

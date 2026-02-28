@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sidebar, BottomNav } from './Navigation';
 import { LayoutDashboard, BarChart3, Users, Bell, X, Check } from 'lucide-react';
@@ -101,8 +101,6 @@ const NotificationsDropdown = () => {
 };
 
 const OwnerLayout = () => {
-    const location = useLocation();
-
     return (
         <div className="flex h-screen bg-[#050505] text-white relative">
             {/* Sidebar for Desktop */}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Users, Plus, Trash2, Edit2, Check, X, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 

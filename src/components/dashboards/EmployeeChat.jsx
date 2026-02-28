@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mic, Send, Package, Search, Loader2, Sparkles } from 'lucide-react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { motion } from 'framer-motion';
+import { Mic, Send, Package, Search, Loader2 } from 'lucide-react';
 
 // --- Micro-UI Components ---
 
@@ -172,7 +172,7 @@ const EmployeeChat = ({ isEmbedded = false, onAction, user = { name: 'sawan' }, 
     }, [threadId]);
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = SpeechRecognition ? new SpeechRecognition() : null;
+    const recognition = useMemo(() => SpeechRecognition ? new SpeechRecognition() : null, [SpeechRecognition]);
 
     useEffect(() => {
         if (recognition) {

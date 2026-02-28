@@ -1,13 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import {
     LayoutDashboard,
-    BarChart3,
-    Users,
-    MessageSquare,
-    CheckSquare,
-    Settings,
     LogOut
 } from 'lucide-react';
 
