@@ -20,7 +20,7 @@ const UserDataScreen = ({ user, onBack, theme }) => {
 
     const fetchUserData = async () => {
         try {
-            const res = await fetch(`http://localhost:8000/api/user-data?user_id=${user.id}`);
+            const res = await fetch(`https://backend-fhk2.onrender.com/api/user-data?user_id=${user.id}`);
             const data = await res.json();
             if (data.business_name) {
                 setFormData(data);
@@ -65,7 +65,7 @@ const UserDataScreen = ({ user, onBack, theme }) => {
         setLoading(true);
         setMessage('');
         try {
-            const res = await fetch(`http://localhost:8000/api/user-data?user_id=${user.id}`, {
+            const res = await fetch(`https://backend-fhk2.onrender.com/api/user-data?user_id=${user.id}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
