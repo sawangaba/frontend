@@ -15,7 +15,7 @@ const ManageUsersScreen = ({ onBack }) => {
     const fetchUsers = async () => {
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:8000/api/admin/users');
+            const res = await fetch('https://backend-fhk2.onrender.com/api/admin/users');
             const data = await res.json();
             setUsers(data);
         } catch (error) {
@@ -27,7 +27,7 @@ const ManageUsersScreen = ({ onBack }) => {
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure? This will delete the user and ALL their data permanently.")) return;
         try {
-            await fetch(`http://localhost:8000/api/admin/user/${id}`, { method: 'DELETE' });
+            await fetch(`https://backend-fhk2.onrender.com/api/admin/user/${id}`, { method: 'DELETE' });
             fetchUsers();
         } catch (error) {
             console.error("Failed to delete user", error);
@@ -45,7 +45,7 @@ const ManageUsersScreen = ({ onBack }) => {
             return;
         }
         try {
-            await fetch(`http://localhost:8000/api/admin/user/${id}`, {
+            await fetch(`https://backend-fhk2.onrender.com/api/admin/user/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
