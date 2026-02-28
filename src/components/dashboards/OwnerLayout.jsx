@@ -16,7 +16,7 @@ const NotificationsDropdown = () => {
 
     const fetchNotifications = async () => {
         try {
-            const res = await fetch('http://localhost:8000/api/owner/notifications');
+            const res = await fetch('https://backend-fhk2.onrender.com/api/owner/notifications');
             const data = await res.json();
             setNotifications(data);
         } catch (err) {
@@ -32,7 +32,7 @@ const NotificationsDropdown = () => {
 
     const markRead = async (id) => {
         try {
-            await fetch(`http://localhost:8000/api/owner/notifications/${id}/read`, { method: 'PUT' });
+            await fetch(`https://backend-fhk2.onrender.com/api/owner/notifications/${id}/read`, { method: 'PUT' });
             fetchNotifications();
         } catch (err) {
             console.error("Failed to mark read", err);
